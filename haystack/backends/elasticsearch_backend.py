@@ -585,6 +585,7 @@ class ElasticsearchSearchBackend(BaseSearchBackend):
             raw_results = self.conn.search(
                 body=search_kwargs,
                 index=self.index_name,
+                track_total_hits=True,
                 _source=True,
                 **self._get_doc_type_option(),
             )
